@@ -8,7 +8,7 @@ class Solution {
         int step = 0;
         int ptr = 0;
         while(true){
-            System.out.println(ptr + " " + step);
+            // System.out.println(ptr + " " + step);
             int jumpSize = nums[ptr];
             
             int maxPosition = -1;
