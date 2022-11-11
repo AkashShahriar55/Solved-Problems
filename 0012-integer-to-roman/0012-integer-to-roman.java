@@ -2,34 +2,34 @@ class Solution {
     public String intToRoman(int num) {
         
         int multiplyer = 1;
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         
         while(num != 0){
             int reminder = num%10;
             num = num/10;
             if(reminder >= 1 && reminder < 4){
-                ans = multiplyString(reminder,granularRoman(1*multiplyer)) + ans;
+                ans.insert(0,multiplyString(reminder,granularRoman(1*multiplyer)));
             }
             else if ( reminder > 5 && reminder < 9){
-                ans = granularRoman(5*multiplyer) + multiplyString(reminder-5,granularRoman(1*multiplyer)) + ans;
+                ans.insert(0,granularRoman(5*multiplyer) + multiplyString(reminder-5,granularRoman(1*multiplyer)));
             }else if( reminder > 0){
-                ans = granularRoman(reminder*multiplyer) + ans;
+                ans.insert(0,granularRoman(reminder*multiplyer) );
             }
             multiplyer *= 10;
         }
         
         
-        return ans;
+        return ans.toString();
     }
     
     
     private String multiplyString(int multiplyer , String str){
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         for(int i = 0; i< multiplyer ; i++){
-            ans += str;
+            ans.append(str);
         }
         
-        return ans;
+        return ans.toString();
     }
     
     
